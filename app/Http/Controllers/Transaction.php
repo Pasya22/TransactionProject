@@ -18,7 +18,7 @@ class Transaction extends Controller
         $search = $request->input('search');
         $result = TransactionRetail::getTransactions($search);
 
-        return view('transaction.ListTransaction', [
+        return view('Transaction.ListTransaction', [
             'transactions' => $result['transactions'],
             'grand_total' => $result['grand_total']
         ]);
