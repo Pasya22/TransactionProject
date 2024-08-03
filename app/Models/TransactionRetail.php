@@ -73,7 +73,7 @@ class TransactionRetail extends Model
             $query->where(function ($q) use ($search) {
                 $q->where('t_customer.nama', 'LIKE', "%{$search}%")
                     ->orWhere('t_sales.id', 'LIKE', "%{$search}%")
-                    ->orWhere('t_sales_det.kode', 'LIKE', "%{$search}%");
+                    ->orWhere('t_sales_det.no_transaction', 'LIKE', "%{$search}%");
             });
         }
 
