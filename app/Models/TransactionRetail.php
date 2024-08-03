@@ -14,7 +14,7 @@ class TransactionRetail extends Model
     {
         return DB::table($table)->get();
     }
-    public static function getAllDesc($table,$fieldColumn)
+    public static function getAllDesc($table, $fieldColumn)
     {
         return DB::table($table)->orderBy($fieldColumn, 'desc')->get();
     }
@@ -66,7 +66,7 @@ class TransactionRetail extends Model
                 't_sales.ongkir',
                 't_sales.total_bayar'
             )
-            ->orderBy('DESC');
+            ->orderBy('t_sales.created_at', 'desc'); // Mengurutkan berdasarkan tanggal transaksi secara menurun
 
         // Filter results if search term is provided
         if ($search) {
@@ -83,4 +83,5 @@ class TransactionRetail extends Model
 
         return ['transactions' => $transactions, 'grand_total' => $grandTotal];
     }
+
 }
